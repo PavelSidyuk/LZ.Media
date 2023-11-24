@@ -120,6 +120,12 @@ p {
     top: 53px;
     right: 30px;
 }
+.register_password__toggle{
+    cursor: pointer;
+    position: absolute;
+    top: 53px;
+    right: 30px;
+}
 
 .form__submit_btn{
     width: 232px;
