@@ -5,8 +5,7 @@ const toggleVisibility = document.querySelector('.password__toggle');
 let state = new Map([
     ['password', 'text'],
     ['text', 'password']
-])
-
+]);
 toggleVisibility.addEventListener('click', () => {
     password.setAttribute('type', state.get(password.getAttribute('type')))
 

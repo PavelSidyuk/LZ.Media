@@ -97,12 +97,10 @@ p {
 
 .form__input {
     margin: 0 0 30px 0;
-}
-
-.form__password {
     position: relative;
 }
-.form__password a{
+
+.form__input a{
     font-size: 12px;
     font-weight: 300;
     line-height: 18px;
