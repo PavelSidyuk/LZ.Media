@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <script src="js.js"></script>
-<!--    <script src="valid.js"></script>-->
     <title>LZ.Media</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
@@ -60,9 +58,8 @@
     const formEl = document.querySelectorAll('#login');
     const formElReg = document.querySelector('#register');
 
-
     formSwitch.addEventListener('click', () => {
-        console.log(123)
+
         tabs.forEach((tabs) => {
             tabs.classList.toggle('active')
         })
