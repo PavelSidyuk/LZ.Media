@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <script src="js.js"></script>
+<!--    <script src="valid.js"></script>-->
     <title>LZ.Media</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
@@ -19,64 +21,62 @@
                 <button class="form__switch_btn">Register</button>
             </div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <form action="" class="my-form login active" id="test">
+            <div class="wrap active" id="login"></div>
+            <div class="wrap" id ="register"></div>
 
-                <div class="form__input">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password"
-                           placeholder="Enter your Password">
-                    <img class="password__toggle" src="img/Eye.png" alt="">
-                    <a href="#">Forgot Password?</a>
-                </div>
-                <button class="form__submit_btn" type="submit">Login</button>
-            </form>
-            <form action="" class="my-form register" id="form">
-                <div class="form__input">
-                    <label for="register_email">Email Address</label>
-                    <input type="email" name="register_email" id="register_email" placeholder="Enter your User name">
-                </div>
-                <div class="form__input">
-                    <label for="register_nam">User name</label>
-                    <input type="text" name="register_name" id="register_nam" placeholder="Enter your User name">
-
-                </div>
-                <div class="form__input">
-                    <label for="register_password">Password</label>
-                    <input type="password" name="register_password" id="register_password"
-                           placeholder="Enter your Password">
-                    <img class="register_password__toggle" src="img/Eye.png" alt="">
-                </div>
-                <button class="form__submit_btn" type="submit">Register</button>
-            </form>
-            -
         </div>
 
     </div>
 </div>
 <script type="module">
     import Input from "./input.js";
-    const inputName = new Input({
-        label: 'User name',
-        name:'name',
-        type:'text',
-        id:'name',
-        placeholder:'Enter your User name',
-    });
-    const inputPassword = new Input({
-        label: 'Password',
-        name:'password',
-        type:'password',
-        id:'password',
-        placeholder:'Enter your Password',
-        src:'img/Eye.png',
-        link:'#'
-    })
+    const logData = [
+        {label: 'User name', name:'name', type:'text', id:'name', placeholder:'Enter your User name',},
+        {label: 'Password', name: 'password', type: 'password', id: 'password', placeholder: 'Enter your Password', src: 'img/Eye.png', link: '#'},
+    ];
 
-    test.append(inputName.element);
-    test.append(inputPassword.element);
+    const regData =[
+        {label: 'Email Address', name: 'register_email', type: 'email', id: 'register_email', placeholder: 'Enter your User name'},
+        {label: 'User name', name:'register_name', type:'text', id:'register_name', placeholder:'Enter your User name',},
+        {label: 'Password', name: 'register_password', type: 'password', id: 'register_password', placeholder: 'Enter your Password', src: 'img/Eye.png', link: '#'}]
+
+    const inputPassword = new Input(
+        {
+            param: logData,
+            btnName:'Login'
+
+        });
+    const inputReg = new Input(
+        {
+            param: regData,
+            btnName:'Register'
+        }
+    );
+    login.append(inputPassword.element);
+    register.append(inputReg.element);
+
+    const formSwitch = document.querySelector('.form__switch');
+    const tabs = document.querySelectorAll('.form__switch_btn');
+    const formEl = document.querySelectorAll('#login');
+    const formElReg = document.querySelector('#register');
+
+
+    formSwitch.addEventListener('click', () => {
+        console.log(123)
+        tabs.forEach((tabs) => {
+            tabs.classList.toggle('active')
+        })
+        formEl.forEach((formEl) => {
+            formEl.classList.toggle('active')
+        })
+        formEl.forEach((formEl) => {
+            formElReg.classList.toggle('active')
+        })
+    });
+
+
 </script>
-<script src="js.js"></script>
-<script src="valid.js"></script>
+
 
 </body>
 </html>

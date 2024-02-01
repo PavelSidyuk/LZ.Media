@@ -62,16 +62,30 @@ p {
     cursor: pointer;
 
 }
-
+.wrap{
+    width: 100%;
+}
+#login{
+    display: none;
+}
+#register{
+    display: none;
+}
+#register.active{
+    display: block;
+}
+#login.active{
+    display: block;
+}
 .form__switch_btn.active {
     background-color: #9E896A;
     color: #FFFFFF;
 }
 
-.my-form.login {
+.my-form{
     width: 100%;
     margin-top: 42px;
-    display: none;
+
 }
 
 .form input {
@@ -146,11 +160,9 @@ p {
 .my-form.register {
     width: 100%;
     margin-top: 42px;
-    display: none;
+    /*display: none;*/
 }
-.my-form.login.active{
-    display: block;
-}
+
 .my-form.register.active{
     display: block;
 }

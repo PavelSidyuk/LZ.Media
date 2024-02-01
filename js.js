@@ -1,4 +1,3 @@
-
 const password = document.querySelector('#password');
 
 const toggleVisibility = document.querySelector('.password__toggle');
@@ -18,16 +17,21 @@ regToggleVisibility.addEventListener('click', () => {
 
 });
 
-const formSwitch = document.querySelector('.form__switch')
-const tabs =  document.querySelectorAll('.form__switch_btn');
-const formEl = document.querySelectorAll('.my-form')
+const formSwitch = document.querySelector('.form__switch');
+const tabs = document.querySelectorAll('.form__switch_btn');
+const formEl = document.querySelectorAll('#login');
+const formElReg = document.querySelector('#register');
 
 
-    formSwitch.addEventListener('click', () => {
-        tabs.forEach((tabs) => {
-                tabs.classList.toggle('active')
-        })
-        formEl.forEach((formEl) => {
-            formEl.classList.toggle('active')
-        })
+formSwitch.addEventListener('click', () => {
+    console.log(123)
+    tabs.forEach((tabs) => {
+        tabs.classList.toggle('active')
     })
+    formEl.forEach((formEl) => {
+        formEl.classList.toggle('active')
+    })
+    formEl.forEach((formEl) => {
+        formElReg.classList.toggle('active')
+    })
+})

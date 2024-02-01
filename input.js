@@ -1,65 +1,51 @@
 export default class Input {
     element;
-
     constructor({
-                    label = '',
-                    name = '',
-                    type = '',
-                    id = '',
-                    placeholder = '',
-                    link = '',
-                    src = '',
+                    param = [],
+                    btnName = ''
                 } = {}) {
-        this.label = label;
-        this.name = name;
-        this.type = type;
-        this.id = id;
-        this.placeholder = placeholder;
-        this.link = link;
-        this.src = src;
+        this.param = param;
+        this.btnName = btnName;
         this.element = this.creatElement(this.createTemplate());
+
     }
 
     creatElement(template) {
         const element = document.createElement('div');
         element.innerHTML = template;
         return element.firstElementChild;
+
     }
 
-    createImgTemplate() {
-        if (this.src) {
-            return `<img class="password__toggle" src="${this.src}" alt="">`;
-        }
-        return '';
+    renderLinkTemplate(link) {
+        if (link !== undefined) {
+            return `<a href="${link}">Forgot Password?</a>`
+        } else return ''
     }
 
-    createLinkTemplate() {
-        if (this.link) {
-            return `<a href="${this.link}">Forgot Password?</a>`;
-        }
-        return '';
+    renderInputList(list) {
+        return list.map(item => this.renderInput(item.name, item.id, item.label, item.type, item.placeholder, item.src, item.link)).join('');
+    }
 
+    renderInput(name, id, label, type, placeholder, src, link) {
+
+        return `<div class="form__input">
+                    <label for="${name}">${label}</label>
+                    <input type="${type}" name="${name}" id="${id}"placeholder="${placeholder}">
+                    <img class="password__toggle" src="${src}" alt="">
+                    ${this.renderLinkTemplate(link)}
+                </div>`
     }
 
     createTemplate() {
         return (`
-            <div class="form__input">
-               <label for="${this.name}">${this.label}</label>
-               <input type="${this.type}" name="${this.name}" id="${this.id}"placeholder="${this.placeholder}">
-               ${this.createImgTemplate()}
-               ${this.createLinkTemplate()}
-           </div>`);
+        <form action="" class="my-form"> 
+               ${this.renderInputList(this.param)}
+            </div>
+            <button class="form__submit_btn" type="submit">${this.btnName}</button>
+        </form>`);
+
 
     }
-
-    remove() {
-        this.element.remove();
-    }
-
-    destroy() {
-        this.remove();
-    }
-
-
 }
 
