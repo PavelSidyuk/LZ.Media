@@ -19,6 +19,7 @@
                 <button class="form__switch_btn">Register</button>
             </div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <!--ниже две формы, которые выводит компонент Input-->
             <div class="wrap active" id="login"></div>
             <div class="wrap" id ="register"></div>
 
@@ -52,7 +53,7 @@
     );
     login.append(inputPassword.element);
     register.append(inputReg.element);
-
+    // код, который переключает формы
     const formSwitch = document.querySelector('.form__switch');
     const tabs = document.querySelectorAll('.form__switch_btn');
     const formEl = document.querySelectorAll('#login');
